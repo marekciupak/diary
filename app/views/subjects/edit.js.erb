@@ -1,0 +1,6 @@
+$('#dialog h3').html("<i class=' glyphicon glyphicon-pencil'></i> Edit Subject");
+$('.modal-body').html('<%= j render("form") %>');
+$('#dialog').modal("show");
+$('#dialog').on('shown.bs.modal', function () {
+  $('.first_input').focus();
+});

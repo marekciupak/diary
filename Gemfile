@@ -18,5 +18,6 @@ group :development, :test do
   gem 'spring'
 end
 
-gem "rolify"
+gem 'rolify'
+gem 'devise'
 

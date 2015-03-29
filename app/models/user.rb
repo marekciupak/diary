@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :division
-  has_one: :subject #nauczyciel
+  has_one :subject #nauczyciel
 
   validates :first_name, :last_name, presence: true
 

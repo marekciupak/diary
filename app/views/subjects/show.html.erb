@@ -1,26 +1,42 @@
 <div class="container">
 
-  <h2>Subject #<%= @subject.id %></h2>
-  <h3>Nauczyciel: <%= @subject.user.first_name unless @subject.user.nil? %></h3>
+  <h2>Show subject</h2>
+
+  <p>ID: <%= @subject.id %></p>
+  <p>Name: <%= @subject.name %></p>
+  <p>Description: <%= @subject.description %></p>
+  <p>Updated_at: <td><%= l(@subject.updated_at, format: :long) %></p>
+  <p>Created_at: <td><%= l(@subject.created_at, format: :long) %></p>
+
+  <h3>Teacher</h3>
+  <p>First name: <%= @subject.user.first_name unless @subject.user.nil? %></p>
+  <p>Last name: <%= @subject.user.last_name unless @subject.user.nil? %></p>
+  <p>E-mail: <%= @subject.user.email unless @subject.user.nil? %></p>
+
+  <p>
+    <%= link_to 'Show', subject_path(@subject), :class => 'btn btn-sm btn-info' %>
+    <%= link_to 'Change', edit_subject_path(@subject), remote: true, :class => 'btn btn-sm btn-info' %>
+    <%= link_to 'Delete', @subject, remote: true, :method => :delete, data: {confirm: "Remove Subject: #{@subject.name}"}, :class => 'btn btn-sm btn-danger' %>
+  </p>
+
+  <p><%= link_to 'List all subjects', subjects_path, :class => 'btn btn-sm btn-info' %></p>
+
+  <h2>Divisions assignement to this subject</h2>
 
   <table id class="table table-bordered table-striped">
     <thead>
     <tr>
       <th>ID#</th>
-      <th>Name</th>
-      <th>Desciption</th>
+      <th>Year</th>
+      <th>Letter</th>
       <th>Updated at</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
     </thead>
     <tbody id="subjects">
-    <%= render @subject %>
+        <%= render @subject.divisions %>
     </tbody>
   </table>
-
-  <p><%= link_to 'List all subjects', subjects_path, :class => 'btn btn-sm btn-info' %></p>
-
-  <%= render @subject.divisions %>
 
 </div>

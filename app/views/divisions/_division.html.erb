@@ -7,6 +7,6 @@
   <td>
     <%= link_to 'Show', division_path(division), :class => 'btn btn-sm btn-info' %>
     <%= link_to 'Change', edit_division_path(division), remote: true, :class => 'btn btn-sm btn-info' %>
-    <%= link_to 'Delete', division, remote: true, :method => :delete, data: {confirm: "Remove Division: #{division.name}"}, :class => 'btn btn-sm btn-danger' %>
+    <%= link_to 'Delete', division, remote: true, :method => :delete, data: {confirm: "Remove Division: #{division.id}"}, :class => 'btn btn-sm btn-danger' %>
   </td>
 </tr>

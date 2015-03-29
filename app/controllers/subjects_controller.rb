@@ -60,7 +60,7 @@ private
   end
   
   def subject_params
-    params.require(:subject).permit(:name, :description)
+    params.require(:subject).permit(:name, :description, :user_id)
   end
 
 end

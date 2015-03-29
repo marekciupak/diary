@@ -20,6 +20,7 @@
       <%= f.text_field :letter %>
     </div>
     <div class="field">
+      <%= f.label :subject_ids %><br>
       <%= f.select :subject_ids, options_from_collection_for_select(Subject.all, :id, :name), {}, {:multiple => true, :class => "chzn-select", :style => "width:450px;" } %>
     </div>
     <div class="actions">

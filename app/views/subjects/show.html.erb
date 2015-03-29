@@ -1,7 +1,7 @@
 <div class="container">
 
   <h2>Subject #<%= @subject.id %></h2>
-  <h3>Nauczyciel: <%= @subject.user.firstname unless @subject.user.nil? %></h3>
+  <h3>Nauczyciel: <%= @subject.user.first_name unless @subject.user.nil? %></h3>
 
   <table id class="table table-bordered table-striped">
     <thead>

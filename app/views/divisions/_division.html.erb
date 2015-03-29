@@ -1,0 +1,12 @@
+<tr id="division_<%= division.id %>">
+  <td><%= division.id %></td>
+  <td><%= division.year %></td>
+  <td><%= division.letter %></td>
+  <td><%= l(division.updated_at, format: :long) %></td>
+  <td><%= l(division.created_at, format: :long) %></td>
+  <td>
+    <%= link_to 'Show', division_path(division), :class => 'btn btn-sm btn-info' %>
+    <%= link_to 'Change', edit_division_path(division), remote: true, :class => 'btn btn-sm btn-info' %>
+    <%= link_to 'Delete', division, remote: true, :method => :delete, data: {confirm: "Remove Division: #{division.name}"}, :class => 'btn btn-sm btn-danger' %>
+  </td>
+</tr>

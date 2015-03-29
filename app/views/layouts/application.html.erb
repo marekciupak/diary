@@ -7,13 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class='container-fluid'>
+    <nav class='navbar navbar-default'>
+      <div class='container-fluid'>
+        <div class='navbar-header'>
+          <%= link_to 'Grade diary', root_path, class: 'navbar-brand' %>
+        </div>
+          <div class='collapse navbar-collapse'>
+            <%= render 'layouts/navigation' %>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><a>Logged in as <strong><%= current_user.email %></strong>.</a></li>
+              <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+              <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'Log in', new_user_session_path %></li>
+            <% end %>
+          </ul>
+          </div>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+      </div>
+    </nav>
 
 
-  <%= yield %>
-  <%= render 'layouts/dialog' %>
-
+    <div class='main-content'>
+      <div class='container-fluid'>
+        <div class='row'>
+          <div>
+            <% if notice %>
+              <p class='alert alert-dismissible alert-success'><%= notice %></p>
+            <% end %>
+            <% if alert %>
+              <p class='alert alert-dismissible alert-danger'><%= alert %></p>
+            <% end %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -69,6 +69,6 @@ class DivisionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def division_params
-      params.require(:division).permit(:year, :letter)
+      params.require(:division).permit(:year, :letter, :subject_ids => [])
     end
 end

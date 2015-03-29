@@ -1,25 +1,28 @@
 <%= form_for(@division) do |f| %>
-  <% if @division.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@division.errors.count, "error") %> prohibited this division from being saved:</h2>
+    <% if @division.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@division.errors.count, "error") %> prohibited this division from being saved:</h2>
 
-      <ul>
-      <% @division.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @division.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :year %><br>
+      <%= f.number_field :year %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.number_field :year %>
-  </div>
-  <div class="field">
-    <%= f.label :letter %><br>
-    <%= f.text_field :letter %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :letter %><br>
+      <%= f.text_field :letter %>
+    </div>
+    <div class="field">
+      <%= f.select :subject_ids, options_from_collection_for_select(Subject.all, :id, :name), {}, {:multiple => true, :class => "chzn-select", :style => "width:450px;" } %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

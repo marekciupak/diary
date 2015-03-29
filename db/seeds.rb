@@ -25,3 +25,12 @@ p "Created #{Subject.count} subjects."
 
 subject_1.user_id = user_teacher.id
 subject_1.save
+p "Subject have user-teacher"
+
+division_1.subjects << [subject_1, subject_2]
+p "Division_1 have subjects"
+
+
+
+
+
